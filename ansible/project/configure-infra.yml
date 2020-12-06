@@ -4,6 +4,7 @@
 - name: Launching an EC2 machine
   hosts: localhost
   become: true
+  gather_facts: no
 #  vars:
  #   ACCESS: AKIAJZTXLKZHCQ5PGKKQ
   #  SECRET: mysecretkey
