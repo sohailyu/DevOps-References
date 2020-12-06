@@ -3,7 +3,6 @@
 - name: Create S3
   hosts: localhost
   become: true
-  become_user: root
   gather_facts: no
   tasks:
     - name: Create S3
