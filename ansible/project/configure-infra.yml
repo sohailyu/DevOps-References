@@ -4,11 +4,11 @@
 - name: Launching an EC2 machine
   hosts: localhost
   become: true
-  vars:
-    ACCESS: AKIAJZTXLKZHCQ5PGKKQ
-    SECRET: mysecretkey
-    REGION: us-east-1
-    MYKEY: AwsKamalayKey
+#  vars:
+ #   ACCESS: AKIAJZTXLKZHCQ5PGKKQ
+  #  SECRET: mysecretkey
+  #  REGION: us-east-1
+  #  MYKEY: AwsKamalayKey
   tasks:
     - name: Launching an EC2 Machine for Nginx Loadbalancer    
       ec2:
