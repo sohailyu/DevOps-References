@@ -1,6 +1,6 @@
 ---
 - name: A Sample yml file to copy the file
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Copying the file
       copy: 
