@@ -8,6 +8,7 @@
     - name: Launching EC2
       ec2:     
         key_name: Mac
+        region: us-west-2
         instance_type: t2.micro
         image: ami-0b0154d3d8011b0cd
         wait: yes
