@@ -1,0 +1,12 @@
+---
+
+- name: Create S3
+  hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+    - name: Create S3
+      amazon.aws.s3_bucket:
+        name: Ahmadisansiblepro
+        state: present
+      
