@@ -5,13 +5,13 @@
   become: true
   gather_facts: no
   tasks:
-    -name: Launching EC2
-     ec2:     
-       key_name: Mac
-       instance_type: t2.micro
-       image: ami-0b0154d3d8011b0cd
-       wait: yes
-       group: webserver
-       count: 1
-       vpc_subnet_id: subnet-732ee358
-       assign_public_ip: yes
+    - name: Launching EC2
+      ec2:     
+        key_name: Mac
+        instance_type: t2.micro
+        image: ami-0b0154d3d8011b0cd
+        wait: yes
+        group: webserver
+        count: 1
+        vpc_subnet_id: subnet-732ee358
+        assign_public_ip: yes
