@@ -6,7 +6,7 @@
   gather_facts: no
   tasks:
     - name: Create S3
-      amazon.aws.s3_bucket:
-        name: Ahmadisansiblepro
+      s3_bucket:
+        name: ahmadisansiblepro
         state: present
       
