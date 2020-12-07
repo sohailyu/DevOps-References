@@ -5,6 +5,13 @@
   become: true
   gather_facts: no
   tasks:
+    - name: Get Default Security group
+      ec2_group_info:
+        region: "{{ REGION }}"
+        filters:
+          group-name: "efs_{{ PROJECT }}"
+          "tag:ENVIRONMENT": "{{ ENVIRONMENT }}"
+      register: security_facts
     - name: Get Subnet ID For AZ A
       ec2_vpc_subnet_info:
         region: "{{ REGION }}"
@@ -18,6 +25,7 @@
         key_name: Mac
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
+        security_group: "{{ security_facts.security_groups.0.group_id }}"
         image: "{{ AMI_ID }}"
         wait: yes
         count: "{{ COUNT }}" 
