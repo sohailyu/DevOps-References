@@ -9,7 +9,7 @@
       ec2_vpc_subnet_info:
         region: "{{ REGION }}"
         filters:
-          "tag:Name": "{{ ENVIRONMENT }}"
+          "tag:Value": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
     - debug: 
         var: ec2_subnet_a
