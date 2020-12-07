@@ -26,9 +26,10 @@
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
         user_data: |
-                  #!/bin/bash
-                  sudo yum install git -y
-                  sudo git clone https://github.com/sohailyu/DevOps-References.git
+                   #!/bin/bash
+                   sudo yum install git -y
+                   sudo amazon-linux-extras install ansible -y
+                   sudo git clone https://github.com/sohailyu/DevOps-References.git
                   sudo ansible-playbook ansible/project/s3.yml
         group_id: "{{ security_facts.security_groups.0.group_id }}"
         image: "{{ AMI_ID }}"
