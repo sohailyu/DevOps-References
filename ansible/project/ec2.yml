@@ -6,7 +6,7 @@
   gather_facts: no
   tasks:
     - name: Get Subnet ID For AZ A
-      ec2_vpc_subnet_facts:
+      ec2_vpc_subnet_info:
         region: "{{ REGION }}"
         filters:
           "tag:Name": "{{ ENVIRONMENT }}"
