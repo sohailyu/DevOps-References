@@ -5,6 +5,12 @@
   become: true
   gather_facts: no
   tasks:
+    - name: Get Subnet ID For AZ A
+        ec2_vpc_subnet_facts:
+        region: "{{ REGION }}"
+        filters:
+        "tag:Name": "{{ ENVIRONMENT }}"
+      register: ec2_subnet_a
     - name: Launching EC2
       ec2:     
         key_name: Mac
@@ -13,5 +19,5 @@
         image: "{{ AMI_ID }}"
         wait: yes
         count: "{{ COUNT }}" 
-        vpc_subnet_id: "{{ SUBNET_ID }}"
+        vpc_subnet_id: "{{ ec2_subnet_a.subnets.0.id }}"
         assign_public_ip: yes
