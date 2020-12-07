@@ -8,7 +8,7 @@
     - name: Get Subnet ID For AZ A
       amazon.aws.ec2_vpc_subnet_info:
    #  ec2_vpc_subnet_facts:
-        region: "{{ REGION }}"
+  #     region: "{{ REGION }}"
         filters:
         "tag:Name": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
