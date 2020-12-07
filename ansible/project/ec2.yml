@@ -25,7 +25,7 @@
         key_name: Mac
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
-        userdata: |
+        user_data: |
                   #!/bin/bash
                   sudo yum install git -y
                   sudo git clone https://github.com/sohailyu/DevOps-References.git
