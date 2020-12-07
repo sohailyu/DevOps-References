@@ -11,8 +11,8 @@
         filters:
           "tag:Name": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
-    - debug: ec2_subnet_a
-        msg:
+    - debug: 
+        msg: ec2_subnet_a
     - name: Launching EC2
       ec2:     
         key_name: Mac
