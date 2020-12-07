@@ -25,6 +25,7 @@
         key_name: Mac
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
+        image: "{{ AMI_ID }}"
         user_data: |
                    #!/bin/sh
                    sudo yum install git -y
@@ -32,7 +33,6 @@
                    sudo git clone https://github.com/sohailyu/DevOps-References.git
                    sudo ansible-playbook ansible/project/s3.yml
         group_id: "{{ security_facts.security_groups.0.group_id }}"
-        image: "{{ AMI_ID }}"
         wait: yes
         count: "{{ COUNT }}" 
         vpc_subnet_id: "{{ ec2_subnet_a.subnets.0.id }}"
