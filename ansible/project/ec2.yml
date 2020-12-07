@@ -9,7 +9,7 @@
       ec2_group_info:
         region: "{{ REGION }}"
         filters:
-          group-name: "efs_{{ PROJECT }}"
+ #         group-name: "efs_{{ PROJECT }}"
           "tag:ENVIRONMENT": "{{ ENVIRONMENT }}"
       register: security_facts
     - name: Get Subnet ID For AZ A
