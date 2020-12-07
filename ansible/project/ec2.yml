@@ -26,7 +26,7 @@
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
         user_data: |
-                   #!/bin/bash
+                   #!/bin/sh
                    sudo yum install git -y
                    sudo amazon-linux-extras install ansible -y
                    sudo git clone https://github.com/sohailyu/DevOps-References.git
