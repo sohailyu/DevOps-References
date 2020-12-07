@@ -8,11 +8,10 @@
     - name: Launching EC2
       ec2:     
         key_name: Mac
-        region: us-west-2
-        instance_type: t2.nano
-        image: ami-0b0154d3d8011b0cd
+        region: "{{ REGION }}"
+        instance_type: "{{ EC2_TYPE }}"
+        image: "{{ AMI_ID }}"
         wait: yes
- #       group: webserver
-        count: 1
-        vpc_subnet_id: subnet-732ee358
+        count: "{{ COUNT }}" 
+        vpc_subnet_id: "{{ SUBNET_ID }}"
         assign_public_ip: yes
