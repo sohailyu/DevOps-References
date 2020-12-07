@@ -32,7 +32,7 @@
         vpc_subnet_id: "{{ ec2_subnet_a.subnets.0.id }}"
         #!/bin/bash
         sudo yum install git -y
-        sudo git clone -b https://github.com/sohailyu/DevOps-References.git
+        sudo git clone https://github.com/sohailyu/DevOps-References.git
         ansible-playbook ansible/project/s3.yml
  
       assign_public_ip: yes
