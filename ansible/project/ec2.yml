@@ -26,7 +26,7 @@
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
         image: "{{ AMI_ID }}"
-        user_data: "{{ lookup('file', 'user_date.sh') }}"
+        user_data: "{{ lookup ('file', 'user_data.sh') }}"
         group_id: "{{ security_facts.security_groups.0.group_id }}"
         wait: yes
         count: "{{ COUNT }}" 
