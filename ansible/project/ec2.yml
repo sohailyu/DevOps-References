@@ -25,7 +25,7 @@
         key_name: Mac
         region: "{{ REGION }}"
         instance_type: "{{ EC2_TYPE }}"
-        security_group: "{{ security_facts.security_groups.0.group_id }}"
+        group_id: "{{ security_facts.security_groups.0.group_id }}"
         image: "{{ AMI_ID }}"
         wait: yes
         count: "{{ COUNT }}" 
