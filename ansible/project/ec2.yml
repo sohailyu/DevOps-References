@@ -30,4 +30,9 @@
         wait: yes
         count: "{{ COUNT }}" 
         vpc_subnet_id: "{{ ec2_subnet_a.subnets.0.id }}"
-        assign_public_ip: yes
+        #!/bin/bash
+        sudo yum install git -y
+        sudo git clone -b https://github.com/sohailyu/DevOps-References.git
+        ansible-playbook ansible/project/s3.yml
+ 
+      assign_public_ip: yes
