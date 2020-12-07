@@ -31,5 +31,4 @@
         wait: yes
         count: "{{ COUNT }}" 
         vpc_subnet_id: "{{ ec2_subnet_a.subnets.0.id }}"
- 
-      assign_public_ip: yes
+        assign_public_ip: yes
