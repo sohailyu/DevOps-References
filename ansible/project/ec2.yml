@@ -6,11 +6,10 @@
   gather_facts: no
   tasks:
     - name: Get Subnet ID For AZ A
-      amazon.aws.ec2_vpc_subnet_info:
-   #  ec2_vpc_subnet_facts:
-  #     region: "{{ REGION }}"
+      ec2_vpc_subnet_facts:
+        region: "{{ REGION }}"
         filters:
-        "tag:Name": "{{ ENVIRONMENT }}"
+          "tag:Name": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
     - name: Launching EC2
       ec2:     
