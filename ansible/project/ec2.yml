@@ -7,9 +7,9 @@
   tasks:
     - name: Get Subnet ID For AZ A
       ec2_vpc_subnet_info:
-        region: "{{ REGION }}"
+      #  region: "{{ REGION }}"
         filters:
-          "tag:Value": "{{ ENVIRONMENT }}"
+          "tag:Name": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
     - debug: 
         var: ec2_subnet_a
