@@ -12,7 +12,7 @@
           "tag:Name": "{{ ENVIRONMENT }}"
       register: ec2_subnet_a
     - debug: 
-        msg: ec2_subnet_a
+        var: ec2_subnet_a
     - name: Launching EC2
       ec2:     
         key_name: Mac
