@@ -7,6 +7,6 @@
   tasks:
     - name: Create S3
       s3_bucket:
-        name: ahmadsohailisansiblepro
-        state: present
+        name: "{{ BUCKET_NAME }}"
+        state: "{{ STATE }}"
       
