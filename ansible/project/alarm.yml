@@ -1,0 +1,28 @@
+---
+
+- name: Create S3
+  hosts: localhost
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: fetch instance id
+      shell: curl http://169.254.169.254/latest/meta-data/instance-id
+      register: ec2
+    - debug:
+        var: ec2
+    - name: Create Alarm
+      ec2_metric_alarm:
+        state: present
+        region: us-west-2
+        name: "cpu-low"
+        metric: "CPUUtilization"
+        namespace: "AWS/EC2"
+        statistic: Average
+        comparison: "<="
+        threshold: 5.0
+        period: 300
+        evaluation_periods: 3
+        unit: "Percent"
+        description: "This will alarm when a bamboo slave's cpu usage average is lower than 5% for 15 minutes "
+        dimensions:  {'InstanceId':"{{ ec2.stdout }}"} 
+        alarm_actions: ["arn:aws:sns:us-west-2:778455851442:Sohail"]
