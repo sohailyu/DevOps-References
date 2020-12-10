@@ -5,5 +5,5 @@
   become: true
   gather_facts: no
   roles:
-    - roles/ec2
+    - ansible/roles/ec2
 #    - /Users/tempuser/DevOps-References/ansible/roles/ec2 
