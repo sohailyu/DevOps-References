@@ -1,0 +1,26 @@
+---
+# tasks file for alarm
+
+- name: fetch Ec2 instance id  
+  shell:  curl http://169.254.169.254/latest/meta-data/instance-id
+  register: ec2
+
+- debug:
+    msg: "{{ ec2.stdout }}"
+
+- name: 
+  ec2_metric_alarm:
+    state: present
+    region: us-west-2
+    name: "Ahmadistesting"
+    metric: "CPUUtilization"
+    namespace: "AWS/EC2"
+    statistic: Average
+    comparison: "<="
+    threshold: 5.0
+    period: 300
+    evaluation_periods: 3
+    unit: "Percent"
+    description: "This will alarm when a bamboo slave's cpu usage average is lower than 5% for 15 minutes "
+    dimensions: {'InstanceId':"{{ ec2.stdout }}"}  #   dimensions: {'InstanceId':'i-XXX'}
+    alarm_actions: ["arn:aws:sns:us-west-2:778455851442:Sohail"] 
