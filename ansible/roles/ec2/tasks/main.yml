@@ -19,7 +19,7 @@
     key_name: Mac
     region: "{{ REGION }}"
     instance_type: "{{ EC2_TYPE }}"
-    instance_profile_name: "{{ lookup ('file', 'policy.json') }}"
+   # instance_profile_name: "{{ lookup ('file', 'policy.json') }}"
     image: "{{ AMI_ID }}"
     user_data: "{{ lookup ('file', 'user_data.sh') }}"
     group_id: "{{ security_facts.security_groups.0.group_id }}"
