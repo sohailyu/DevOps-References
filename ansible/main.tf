@@ -69,7 +69,7 @@ resource "aws_security_group" "allow_jenk-port1" {
     Name = "allow_jenkins"
   }
 }
-resource "aws_key_pair" "jenkins-key" {
+resource "aws_key_pair" "jenkins-key1" {
   key_name = "${var.dev_key_name}" # jenkins_key var.dev_key_name
   public_key = "${var.jenkins_key}" #"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjJeO55Ftok6VjL0+zGoxDhIlS5w7i9UN139wx+YO9pOb6kOPT8ho8tlYOrzxoD79Fi3APCP/LjzJNYEvWmS/f6Ui1TYZRF3k1PFuWX/5IOUqqKHyGLPZTbal3XTLYIp9ue8d60tyKVtzNiY9o8LB/XemJmny4S/mLSpHwXmq/O1osgSYplAZfLHOI2W9DA9xlA59VbcCvXcuKysw9oy6kzGyDFO+j9qBAGzgkf+KY1nWEv1HmrFzsO2N0JfWpVrxSb2auDURfi3Ygl1d36mLBO/skxRJA6gj1QmXuXRllUou6sfe/LiViPrUy4L1fLVgV5f/EncZ0ECpXzDEU5drn tempuser@Temps-MBP.attlocal.net"#var.jenkins_key
 }
@@ -80,7 +80,7 @@ resource "aws_instance" "jenkins" {
     iam_instance_profile = data.aws_iam_instance_profile.ec2-profile.name
     subnet_id = data.aws_subnet.subnet1.id
     associate_public_ip_address = "${var.assign_public_ip}"
-    key_name = aws_key_pair.jenkins-key.id
+    key_name = aws_key_pair.jenkins-key1.id
 
   
 }
