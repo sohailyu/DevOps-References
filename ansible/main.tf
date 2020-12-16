@@ -37,7 +37,7 @@ data "aws_iam_instance_profile" "ec2-profile" {
 #     }
   
 # }
-resource "aws_security_group" "allow_jenk-port" {
+resource "aws_security_group" "allow_jenk-port1" {
   name        = "allow_jenk-port"
   description = "Allow TLS inbound traffic"
   vpc_id      = data.aws_vpc.vpc1.id
@@ -76,7 +76,7 @@ resource "aws_key_pair" "jenkins-key" {
 resource "aws_instance" "jenkins" {
     ami = data.aws_ami.ami1.id
     instance_type = "${var.instance_type}"
-    vpc_security_group_ids = [aws_security_group.allow_jenk-port.id]#[ data.aws_security_group.jenkins-security.id ]
+    vpc_security_group_ids = [aws_security_group.allow_jenk-port1.id]#[ data.aws_security_group.jenkins-security.id ]
     iam_instance_profile = data.aws_iam_instance_profile.ec2-profile.name
     subnet_id = data.aws_subnet.subnet1.id
     associate_public_ip_address = "${var.assign_public_ip}"
